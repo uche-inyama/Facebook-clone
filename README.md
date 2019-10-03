@@ -13,6 +13,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
 
+
 ### Technologies(gems) used for this project
 - [x] RSpec with Capybara
 - [x] Factory-bot with Faker
