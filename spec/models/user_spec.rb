@@ -28,4 +28,11 @@ RSpec.describe User, type: :model do
       expect(user.save).to eq(false)
     end
   end
+
+  context 'Associations' do
+    it 'has many posts' do
+      assc = described_class.reflect_on_association(:posts)
+      expect(assc.macro).to eql :has_many
+    end
+  end
 end

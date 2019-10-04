@@ -9,4 +9,11 @@ RSpec.describe Post, type: :model do
       expect(post.save).to eq(false)
     end
   end
+
+  context 'associations' do
+    it 'belongs to a User' do
+      assc = described_class.reflect_on_association(:user)
+      expect(assc.macro).to eql :belongs_to
+    end
+  end
 end
