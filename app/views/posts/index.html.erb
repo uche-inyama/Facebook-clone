@@ -1,6 +1,13 @@
 <h3>Timeline</h3>
-
-<% @posts.each do |post| %>
-  <p><%= post.body %></p>
-  <small><%= post.user.first_name %></small>
+<% if @posts.empty? %>
+  <h4>You don't have any posts yet!</h4>
+<% else  %>
+  <% @posts.each do |post| %>
+    <p><%= post.body %></p>
+    <small><%= post.user.first_name %></small>
+    <% if current_user == post.user %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post), method: :delete %>
+    <% end %>
+  <% end %>
 <% end %>
