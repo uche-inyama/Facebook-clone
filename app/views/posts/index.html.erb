@@ -1,0 +1,5 @@
+<%= form_for @post do |f|%>
+    <%= f.label :body %><br/>
+    <%= text_area_tag :body %>
+    <%= f.submit 'post' %>
+<% end %>
