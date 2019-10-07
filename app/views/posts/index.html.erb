@@ -1,5 +1,6 @@
-<%= form_for @post do |f|%>
-    <%= f.label :body %><br/>
-    <%= text_area_tag :body %>
-    <%= f.submit 'post' %>
+<h3>Timeline</h3>
+
+<% @posts.each do |post| %>
+  <p><%= post.body %></p>
+  <small><%= post.user.first_name %></small>
 <% end %>
