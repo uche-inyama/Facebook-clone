@@ -57,7 +57,7 @@ group :development, :test do
   gem 'capybara'
 
   # This gem helps Capybara interact with the web browser
-  gem 'webdriver'
+  gem 'webdrivers'
 
   # Database Cleaner
   gem 'database_cleaner'
