@@ -10,18 +10,18 @@ RSpec.feature 'Post Management' do
   end
 
   scenario 'edit post' do
-    register_user
     sign_in_user
     fill_in 'Create a post', with: 'a new post'
     click_on 'Edit'
     fill_in 'Edit post', with: 'an updated post'
-    click_on 'post'
+    click_on 'Post'
     expect(page).to have_content('Post successfully edited')
   end
 
-  # scenario 'delete post' do
-
-  # end
-
-
+  scenario 'delete post' do
+    sign_in_user
+    fill_in 'Create a post', with: 'a new post'
+    click_on 'Delete'
+    expect(page).to have_content('Post deleted')
+  end
 end
