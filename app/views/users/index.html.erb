@@ -1,5 +1,5 @@
 <h3>Connect with others:</h3>
 
 <% @users.each do |user| %>
-  <%= gravatar_for user %><%= user.first_name %><%= user.surname %><br>
+  <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %><br>
 <% end %>

@@ -8,12 +8,14 @@
 <% if @posts.empty? %>
   <h4>You don't have any posts yet!</h4>
 <% else  %>
-  <% @posts.each do |post| %>
-    <p><%= post.body %></p>
-    <small><%= post.user.first_name %></small>
-    <% if current_user == post.user %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Delete', post_path(post), method: :delete %>
+  <div>
+    <% @posts.each do |post| %>
+      <%= post.body %><br>
+      <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small>
+      <% if current_user == post.user %>
+        <small><%= link_to 'Edit', edit_post_path(post) %></small>
+        <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 <% end %>

@@ -9,7 +9,7 @@ module Helpers
     page.find('#user_date_of_birth').set('2000-10-04')
     select('Male', from: 'user_gender')
     click_button 'Sign up'
-    click_on 'Sign out'
+    # click_on 'Sign out'
   end
 
   def sign_in_user
