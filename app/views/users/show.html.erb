@@ -1,0 +1,16 @@
+<%= gravatar_for @user %><br>
+Name: <%= @user.first_name %> <%= @user.surname %><br>
+Email: <%= @user.email %><br>
+Date of birth: <%= @user.date_of_birth %><br>
+Gender: <%= @user.gender %><br>
+
+<h5>Create a post:</h5>
+<%= form_for(@post) do |f| %>
+  <%= f.label :body %><br/>
+  <%= f.text_area :body %>
+  <%= f.submit 'Post' %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <h5><%= post.body %></h5>
+<% end %>
