@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Helpers
-  def register_user
+  def register_user(email)
     visit new_user_registration_path
     fill_in 'First name', with: 'Uche'
     fill_in 'Surname', with: 'Inyama'
-    fill_in 'Email', with: 'uac@gmail.com'
+    fill_in 'Email', with: email
     fill_in 'Password', with: '1234asdf'
     fill_in 'Password confirmation', with: '1234asdf'
     page.find('#user_date_of_birth').set('2000-10-04')
@@ -14,9 +14,9 @@ module Helpers
     # click_on 'Sign out'
   end
 
-  def sign_in_user
+  def sign_in_user(email)
     visit '/login'
-    fill_in 'Email', with: 'uac@gmail.com'
+    fill_in 'Email', with: email
     fill_in 'Password', with: '1234asdf'
     click_button 'Log in'
   end

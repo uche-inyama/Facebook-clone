@@ -7,7 +7,7 @@ RSpec.feature 'sign_up' do
     visit new_user_registration_path
     fill_in 'First name', with: 'Uche'
     fill_in 'Surname', with: 'Inyama'
-    fill_in 'Email', with: 'uac2@gmail.com'
+    fill_in 'Email', with: 'uac@gmail.com'
     fill_in 'Password', with: '1234asdf'
     fill_in 'Password confirmation', with: '1234asdf'
     page.find('#user_date_of_birth').set('2000-10-04')
