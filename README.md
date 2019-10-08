@@ -10,6 +10,9 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 
 - [x] Clone the repository using the **```http address```** for the project
 - [x] Ensure that Postgresql is installed.
+- [x] cd into the repository
+- [x] Run rails server
+- [x] Sign up or Login to create and view posts
 
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
  ![ERD](doc/FacebookERD(2).png)
