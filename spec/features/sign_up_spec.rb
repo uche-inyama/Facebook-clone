@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'sign_up' do
     it 'signs me up' do
-      visit '/users/sign_up'
+      visit new_user_registration_path
       fill_in 'First name', with: 'Uche'
       fill_in  'Surname', with: 'Inyama'
       fill_in  'Email', with: 'uac2@gmail.com'
@@ -15,7 +15,7 @@ RSpec.feature 'sign_up' do
     end
 
     it 'does not sign me up, with invalid parameters' do
-        visit '/users/sign_up'
+        visit new_user_registration_path
         fill_in 'First name', with: ' '
         fill_in  'Surname', with: ''
         fill_in  'Email', with: ''

@@ -1,6 +1,6 @@
 module Helpers
   def register_user
-    visit '/users/sign_up'
+    visit new_user_registration_path
     fill_in 'First name', with: 'Uche'
     fill_in  'Surname', with: 'Inyama'
     fill_in  'Email', with: 'uac@gmail.com'
@@ -13,7 +13,7 @@ module Helpers
   end
 
   def sign_in_user
-    visit '/users/sign_in'
+    visit '/login'
     fill_in 'Email', with: 'uac@gmail.com'
     fill_in 'Password', with: '1234asdf'
     click_button 'Log in'
