@@ -11,7 +11,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 ### To clone this repository do the following:
 1. Open a bash or a windows terminal.
 2. Type ```git clone git@github.com:uche-inyama/Facebook-clone.git``` and press enter.
-3. Navigate into the directory with **cd Facebook-clone** 
+3. Navigate into the directory, on your local machine with **cd Facebook-clone** 
 4. Run **bundle install** 
 5. Run **rails server**
 6. Open a browser, visit localhost:3000 and navigate through the application. :slightly_smiling_face:
