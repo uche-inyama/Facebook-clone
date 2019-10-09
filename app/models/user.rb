@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   validates_presence_of :first_name, :surname, :date_of_birth, :gender
   has_many :posts
+  has_many :comments
 end
