@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = current_user.posts.order('updated_at DESC')
+    @posts = Post.all
     @post = Post.new
   end
 

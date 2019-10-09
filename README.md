@@ -6,14 +6,18 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 
 ### How to run this application on your local system
   
-  [**Note**] Postgresql must be installed on your system :slightly_smiling_face:
+  [**Note**] Postgresql must be installed on your local machine :slightly_smiling_face:
 
-- [x] Clone the repository using the **```http address```** for the project
-- [x] Ensure that Postgresql is installed.
-- [x] cd into the repository
-- [x] Run rails server
-- [x] Sign up or Login to create and view posts
+### To clone this repository do the following:
+1. Open terminal.
+2. Type ```git clone git@github.com:uche-inyama/Facebook-clone.git``` and press enter.
+3. Navigate into the directory with **cd Facebook-clone** 
+4. Run **bundle install** 
+5. Run **rails server**
+6. Open a browser, type localhost:3000
 
+[Watch this sample video](https://www.youtube.com/watch?v=5RTHaVvj97I) as a general guide for cloning a repository.
+     
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
  ![ERD](doc/FacebookERD(2).png)
 
@@ -23,3 +27,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 - [x] Devise
 - [x] Facebook's Omniauth
 - [x] Postgresql
+
+## Contributors
+1. [Inyama, Uchechukwu](https://github.com/uche-inyama)
+2. [Moses Ogwo](https://github.com/mosesogwo)
