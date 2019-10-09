@@ -17,5 +17,10 @@ RSpec.describe Post, type: :model do
       assc = described_class.reflect_on_association(:user)
       expect(assc.macro).to eql :belongs_to
     end
+
+    it 'has many comments' do
+      assc = described_class.reflect_on_association(:comments)
+      expect(assc.macro).to eql :has_many
+    end
   end
 end
