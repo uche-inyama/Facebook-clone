@@ -9,14 +9,14 @@ The full project requirement can be found [here](https://www.theodinproject.com/
   [**Note**] Postgresql must be installed on your local machine :slightly_smiling_face:
 
 ### To clone this repository do the following:
-1. Open terminal.
+1. Open a bash or a windows terminal.
 2. Type ```git clone git@github.com:uche-inyama/Facebook-clone.git``` and press enter.
 3. Navigate into the directory with **cd Facebook-clone** 
 4. Run **bundle install** 
 5. Run **rails server**
-6. Open a browser, type localhost:3000
+6. Open a browser, visit localhost:3000 and navigate through the application. :slightly_smiling_face:
 
-[Watch this sample video](https://www.youtube.com/watch?v=5RTHaVvj97I) as a general guide for cloning a repository.
+[Watch this sample video](https://www.youtube.com/watch?v=5RTHaVvj97I) as a general guide for cloning a github repository.
      
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
  ![ERD](doc/FacebookERD(2).png)
