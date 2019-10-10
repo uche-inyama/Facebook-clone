@@ -10,23 +10,27 @@
 <% else  %>
   <div>
     <% @posts.each do |post| %>
+      <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small><br>
       <%= post.body %><br>
-      <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small>
       <% if current_user == post.user %>
         <small><%= link_to 'Edit', edit_post_path(post) %></small>
         <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
       <% end %>
+
+      <% post.comments.each do |comment| %>
+        <small><%= comment.user.first_name %>:</small>
+        <small><%= comment.body %></small><br>
+        <% if current_user == comment.user %>
+          <small><%= link_to 'Edit', edit_comment_path(comment) %></small>
+          <small><%= link_to 'Delete', comment_path(comment), method: :delete %></small><br><br>
+        <% end %>
+      <% end  %><br>
 
       <%= form_for(@comment) do |f| %>
         <%= f.hidden_field :post_id, value: post.id  %>
         <%= f.text_field :body %>
         <%= f.submit 'Comment' %>
       <% end  %><br>
-
-      <% post.comments.each do |comment| %>
-        <small><%= comment.user.first_name %>:</small>
-        <small><%= comment.body %></small><br>
-      <% end  %><br><br>
       
     <% end %>
   </div>

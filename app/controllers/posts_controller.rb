@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :DESC)
     @post = Post.new
     @comment = Comment.new
   end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.delete
     flash[:success] = 'Post deleted'
-    redirect_to posts_path
+    redirect_to request.referrer
   end
 
   private

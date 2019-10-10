@@ -24,15 +24,14 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       redirect_to posts_path
     else
-      flash.now[:danger] = 'Edit post failed'
-      render 'edit'
+      redirect_to posts_path
     end
   end
 
   def destroy
     @comment  = Comment.find_by(id: params[:id])
     @comment.delete
-    redirect_to posts_path
+    redirect_to request.referrer
   end
 
   private
