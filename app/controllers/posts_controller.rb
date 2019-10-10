@@ -17,10 +17,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Post successfully created'
-      redirect_to posts_path
+      redirect_to request.referrer
     else
-      flash.now[:danger] = 'Post cannot be blank'
-      render 'new'
+      redirect_to request.referrer
     end
   end
 

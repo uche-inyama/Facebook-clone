@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to posts_path
+      redirect_to request.referrer
     else
-      redirect_to posts_path
+      redirect_to request.referrer
     end
   end
 
