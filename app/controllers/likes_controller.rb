@@ -5,7 +5,7 @@ class LikesController < ApplicationController
             @like = @comment.likes.create(user_id: current_user.id)
        elsif params.include?"post_id"
             @post = Post.find(params[:post_id])
-            @like = @post.likes.build(user_id: current_user.id)
+            @like = @post.likes.create(user_id: current_user.id)
        end
        redirect_to request.referrer
     end

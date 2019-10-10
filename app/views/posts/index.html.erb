@@ -12,7 +12,8 @@
     <% @posts.each do |post| %>
       <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small><br>
       <%= post.body %><br>
-      <%= button_to 'Like', post_likes_path(post), method: :post %>
+      <%= button_to 'Like', post_likes_path(post), method: :post %> 
+      <%= post.likes.count %> <%= (post.likes.count) > 1 ? 'Like' : 'Likes'%>
       <% if current_user == post.user %>
         <small><%= link_to 'Edit', edit_post_path(post) %></small>
         <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
@@ -21,6 +22,7 @@
       <% post.comments.each do |comment| %>
         <small><%= comment.user.first_name %>:</small>
         <small><%= comment.body %></small><br>
+        <%= comment.likes.count %> <%= (comment.likes.count) > 1 ? 'Like' : 'Likes'%>
         <%= button_to 'Like', comment_likes_path(comment), method: :post %>
         <% if current_user == comment.user %>
           <small><%= link_to 'Edit', edit_comment_path(comment) %></small>
