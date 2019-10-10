@@ -16,6 +16,19 @@
         <small><%= link_to 'Edit', edit_post_path(post) %></small>
         <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
       <% end %>
+
+      <%= form_for(@comment) do |f| %>
+        <%= f.hidden_field :post_id, value: post.id  %>
+        <%= f.text_field :body %>
+        <%= f.submit 'Comment' %>
+      <% end  %><br>
+
+      <% post.comments.each do |comment| %>
+        <small><%= comment.user.first_name %>:</small>
+        <small><%= comment.body %></small><br>
+      <% end  %><br><br>
+      
     <% end %>
   </div>
+
 <% end %>
