@@ -20,4 +20,9 @@ module Helpers
     fill_in 'Password', with: '1234asdf'
     click_button 'Log in'
   end
+
+  def create_post
+    fill_in 'Create a post', with: 'My new post'
+    click_button 'Post'
+  end
 end
