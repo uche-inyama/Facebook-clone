@@ -25,4 +25,9 @@ module Helpers
     fill_in 'Create a post', with: 'My new post'
     click_button 'Post'
   end
+
+  def comment_post
+    fill_in 'comment_body', with: 'a new comment'
+    click_on 'Comment'
+  end
 end
