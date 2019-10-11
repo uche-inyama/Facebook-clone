@@ -18,17 +18,19 @@
         <small><%= link_to 'Edit', edit_post_path(post) %></small>
         <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
       <% end %>
-
-      <% post.comments.each do |comment| %>
-        <small><%= comment.user.first_name %>:</small>
-        <small><%= comment.body %></small><br>
-        <%= comment.likes.count %> <%= (comment.likes.count) > 1 ? 'Like' : 'Likes'%>
-        <%= button_to 'Like', comment_likes_path(comment), method: :post %>
-        <% if current_user == comment.user %>
-          <small><%= link_to 'Edit', edit_comment_path(comment) %></small>
-          <small><%= link_to 'Delete', comment_path(comment), method: :delete %></small><br><br>
-        <% end %>
-      <% end  %><br>
+      
+      <div id='comment_div'>
+        <% post.comments.each do |comment| %>
+          <small><%= comment.user.first_name %>:</small>
+          <small><%= comment.body %></small><br>
+          <%= comment.likes.count %> <%= (comment.likes.count) == 1 ? 'Like' : 'Likes'%>
+          <%= button_to 'Like', comment_likes_path(comment), method: :post %>
+          <% if current_user == comment.user %>
+            <small><%= link_to 'Edit', edit_comment_path(comment) %></small>
+            <small><%= link_to 'Delete', comment_path(comment), method: :delete %></small><br><br>
+          <% end %>
+        <% end  %>
+      </div><br>
 
       <%= form_for(@comment) do |f| %>
         <%= f.hidden_field :post_id, value: post.id  %>
