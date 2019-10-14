@@ -31,13 +31,25 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'friendrequests' do
+  describe 'friend requests' do
     it 'returns all unaccepted friendships' do
       users = create_list(:user, 4)
       users[1].friendships.create(friend_id: users[0].id)
       users[2].friendships.create(friend_id: users[0].id, confirmed: true)
       users[3].friendships.create(friend_id: users[0].id)
       expect(users[0].friend_requests.count).to eq(2)
+    end
+  end
+
+  describe 'Associations' do
+    it 'belongs to a user' do
+      assc = described_class.reflect_on_association(:user)
+      expect(assc.macro).to eql :belongs_to
+    end
+
+    it 'belongs to a friend' do
+      assc = described_class.reflect_on_association(:friend)
+      expect(assc.macro).to eql :belongs_to
     end
   end
 end
