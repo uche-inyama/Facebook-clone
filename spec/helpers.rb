@@ -27,7 +27,9 @@ module Helpers
   end
 
   def comment_post
-    fill_in 'comment_body', with: 'a new comment'
-    click_on 'Comment'
+    comment = find('#comment_body', match: :first)
+    comment.fill_in with: 'a new comment'
+    # fill_in 'comment_body', with: 'a new comment'
+    click_button('Comment', match: :first)
   end
 end

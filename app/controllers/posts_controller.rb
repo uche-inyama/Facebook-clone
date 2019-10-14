@@ -15,12 +15,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = 'Post successfully created'
-      redirect_to request.referrer
-    else
-      redirect_to request.referrer
-    end
+    flash[:success] = 'Post successfully created' if @post.save
+    redirect_to request.referrer
   end
 
   def edit
