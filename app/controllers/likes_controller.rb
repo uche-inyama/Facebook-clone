@@ -28,13 +28,11 @@ class LikesController < ApplicationController
     end
   end
 
-
   def destroy
-     @like = find_like
-     @like.destroy if !@like.nil?
-     redirect_to request.referrer
+    @like = find_like
+    @like&.destroy
+    redirect_to request.referrer
   end
-
 
   def find_like
     if params.include? 'post_id'
