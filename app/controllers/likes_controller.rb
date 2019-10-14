@@ -30,7 +30,7 @@ class LikesController < ApplicationController
 
      def destroy
           @like = find_like
-          @like.destroy
+          @like.destroy if !@like.nil?
           redirect_to request.referrer
      end
 
