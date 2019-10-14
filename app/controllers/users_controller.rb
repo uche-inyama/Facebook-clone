@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @friendrequest = Friendship.new
   end
 
   def show

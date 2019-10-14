@@ -1,5 +1,11 @@
 <h3>Connect with others:</h3>
 
 <% @users.each do |user| %>
-  <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %><br>
+  <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %>
+  <% if current_user.sent_request?(user)%>
+    <h5>Pending Request</h5>
+    <% else %>
+    <%= link_to 'Add friend', user_friendships_path(user), method: :post %>
+  <% end %>
+   <br>
 <% end %>
