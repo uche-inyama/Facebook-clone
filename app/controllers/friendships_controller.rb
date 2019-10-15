@@ -8,4 +8,9 @@ class FriendshipsController < ApplicationController
         @friendrequest = current_user.friendships.create(friend_id: params[:user_id])
         redirect_to request.referrer
     end
+
+    def update
+      @friendship = 
+      @friendship.update_attribute
+    end
 end
