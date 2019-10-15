@@ -13,6 +13,7 @@
   <% if current_user %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
     <%= link_to 'User profile', user_path(current_user) %>
+    <%= link_to "friend Request(s) #{current_user.friend_requests.count}" %>
   <% else %>
     <%= link_to 'Sign up', new_user_registration_path %>
     <%= link_to 'Sign in', new_user_session_path %>
