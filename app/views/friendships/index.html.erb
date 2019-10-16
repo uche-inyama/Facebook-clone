@@ -1,5 +1,0 @@
-<h5>Friend Requests</h5>
-
-<% current_user.friend_requests.each do |request| %>
-<%= gravatar_for request %><%=link_to "#{request.first_name} #{request.surname}", user_path(request) %> <%= link_to "Accept friend Request", user_friendship_path(request), method: :patch %><br>
-<% end %>
