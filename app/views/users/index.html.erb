@@ -4,6 +4,8 @@
   <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %>
   <% if current_user.pending_friends.include?user %>
     <h6>Friend request sent </h6>
+  <% elsif current_user.friends.include?user %>
+    <%= button_to 'Unfriend', user_friendship_path(current_user, user), method: :delete %>
   <% else %>
     <%= button_to 'Add friend', user_friend_requests_path(user), method: :post %>
   <% end %>
