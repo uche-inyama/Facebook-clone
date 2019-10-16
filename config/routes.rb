@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'friend_requests/index'
-  get 'friend_requests/create'
-  get 'friend_requests/update'
-  get 'friend_requests/destroy'
+  
   root to: 'posts#index'
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
   resources :users, only: [:index, :show]
@@ -15,5 +12,9 @@ Rails.application.routes.draw do
 
   resources :comments do
     resources :likes
+  end
+
+  resources :users do
+    resources :friend_requests, only: [:index, :create, :update, :destroy]
   end
 end

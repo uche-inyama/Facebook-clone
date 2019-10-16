@@ -2,10 +2,10 @@
 
 <% @users.each do |user| %>
   <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %>
-  <% if current_user.sent_request?(user)%>
-    <h5>Pending Request</h5>
-    <% else %>
-    <%= link_to 'Add friend', user_friendships_path(user), method: :post %>
+  <% if current_user.pending_friends.include?user %>
+    <h6>Friend request sent </h6>
+  <% else %>
+    <%= button_to 'Add friend', user_friend_requests_path(user), method: :post %>
   <% end %>
-   <br>
+  <br>
 <% end %>
