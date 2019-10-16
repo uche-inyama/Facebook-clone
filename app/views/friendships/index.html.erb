@@ -1,4 +1,5 @@
 <h5>All friends</h5>
 <% @friends.each do |friend| %>
   <%= gravatar_for friend %><%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
+  <%= button_to 'Unfriend', user_friendship_path(current_user, friend), method: :delete %>
 <% end %>
