@@ -4,7 +4,6 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    # debugger
     @friend = current_user.friends.find(params[:id])
     current_user.remove_friend(@friend)
     redirect_to request.referrer
