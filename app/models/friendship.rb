@@ -4,7 +4,8 @@ class Friendship < ApplicationRecord
 
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
-  
+  validate :not_self
+
   belongs_to :user
   belongs_to :friend, class_name: "User"
 
@@ -17,6 +18,10 @@ class Friendship < ApplicationRecord
   def destroy_inverse_relationship
     friendship = friend.friendships.find_by(friend: user)
     friendship.destroy if friendship
+  end
+
+  def not_self
+    errors.add(:friend, "Can't befriend yourself") if user == friend
   end
 end
 
