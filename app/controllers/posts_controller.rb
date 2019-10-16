@@ -4,7 +4,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.order(created_at: :DESC)
+    @friends = current_user.friends
+    @posts = Post.where(user: current_user).or(Post.where(user: @friends)).order(created_at: :desc)
     @post = Post.new
     @comment = Comment.new
   end
