@@ -1,10 +1,11 @@
 class FriendRequestsController < ApplicationController
   def index
-
+    @incoming = FriendRequest.where(friend: current_user)
+    @outgoing = current_user.friend_requests
   end
 
   def create
-    debugger
+    # debugger
     friend = User.find(params[:user_id])
     @friend_request = current_user.friend_requests.build(friend: friend)
     if @friend_request.save
@@ -17,6 +18,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def destroy
+    @friend_request = FriendRequest.find(params[:id])
+    @friend_request.destroy
+    redirect_to request.referrer
   end
 
   def friend_request_params

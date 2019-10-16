@@ -1,2 +1,10 @@
-<h1>FriendRequests#index</h1>
-<p>Find me in app/views/friend_requests/index.html.erb</p>
+<h5> Respond to friend requests</h5>
+<% @incoming.each do |request| %>
+  <%= gravatar_for request.user %><%=link_to "#{request.user.first_name} #{request.user.surname}", user_path(request.user) %>
+<% end %>
+
+<h5> Your pending friends </h5>
+<% @outgoing.each do |request| %>
+  <%= gravatar_for request.friend %><%=link_to "#{request.friend.first_name} #{request.friend.surname}", user_path(request.friend) %>
+  <%= button_to 'Cancel request', user_friend_request_path(current_user, request), method: :delete %>
+<% end %>
