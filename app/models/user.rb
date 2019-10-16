@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
+  has_many :friend_requests, dependent: :destroy
+  has_many :pending_friends, through: :friend_requests, source: :friend
 
-
-  
 end
