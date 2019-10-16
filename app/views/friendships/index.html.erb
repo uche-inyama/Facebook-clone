@@ -1,0 +1,4 @@
+<h5>All friends</h5>
+<% @friends.each do |friend| %>
+  <%= gravatar_for friend %><%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
+<% end %>

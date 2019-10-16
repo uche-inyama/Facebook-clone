@@ -5,7 +5,6 @@ class FriendRequestsController < ApplicationController
   end
 
   def create
-    # debugger
     friend = User.find(params[:user_id])
     @friend_request = current_user.friend_requests.build(friend: friend)
     if @friend_request.save
@@ -15,6 +14,9 @@ class FriendRequestsController < ApplicationController
   end
 
   def update
+    @friend_request = FriendRequest.find(params[:id])
+    @friend_request.accept
+    redirect_to request.referrer
   end
 
   def destroy
@@ -23,7 +25,4 @@ class FriendRequestsController < ApplicationController
     redirect_to request.referrer
   end
 
-  def friend_request_params
-    params.permit(:friend_id)
-  end
 end

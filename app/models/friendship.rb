@@ -1,5 +1,12 @@
 class Friendship < ApplicationRecord
-  # belongs_to :user
-  # belongs_to :friend, class_name: "User"
+  after_create :create_inverse_relationship
+  belongs_to :user
+  belongs_to :friend, class_name: "User"
+
+  private
+
+  def create_inverse_relationship
+    friend.friendships.create(friend: user) if !friend.friendships.has?user
+  end
 end
 
