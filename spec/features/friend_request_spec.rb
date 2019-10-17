@@ -12,7 +12,7 @@ RSpec.feature 'friend_request' do
         click_on 'Sign out'
         register_user('xyz@gmail.com')
         visit users_path
-        find_button('Add friend')[1].click
+        (all('input')[1] || all('input')[0]).click
         # click_on('Add friend')
         expect(page).to have_content('Request sent')
     end
