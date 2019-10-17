@@ -43,4 +43,13 @@ RSpec.describe FriendRequest, type: :model do
       end
     end
   end
+
+  describe 'not_yet_friends' do
+    it "ensures a friendship does not recieve a friend_request" do
+      @users = create_list(:user, 2)
+      Friendship.create(user: @users[0], friend: @users[1])
+      @request = FriendRequest.new(user: @users[0], friend: @users[1])
+      expect {@request.save!}.to  raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Already friends")
+    end
+  end
 end
