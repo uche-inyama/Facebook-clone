@@ -6,6 +6,7 @@ class FriendRequest < ApplicationRecord
   validates :friend, presence: true, uniqueness: { scope: :user }
   validate :not_self
   validate :not_yet_friends
+  validate :not_requested_yet
 
   def accept
     user.friends << friend
@@ -22,6 +23,6 @@ class FriendRequest < ApplicationRecord
     end
 
     def not_requested_yet
-      errors.add(:friend, 'Friend request already sent') if friend.pending_friends.include?user
+      errors.add(:friend, 'Friend request already sent') if friend && friend.pending_friends.include?(user)
     end
 end

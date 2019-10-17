@@ -52,4 +52,11 @@ RSpec.describe FriendRequest, type: :model do
       expect {@request.save!}.to  raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Already friends")
     end
   end
+
+  it 'not_requested_yet' do
+    @users = create_list(:user, 2)
+    @request1 = FriendRequest.create(user: @users[0], friend: @users[1])
+    @request2 = FriendRequest.new(user: @users[1], friend: @users[0])
+    expect(@request2.save).to eq(false)
+  end
 end
