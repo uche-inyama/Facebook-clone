@@ -5,7 +5,9 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friend = current_user.friends.find(params[:id])
-    current_user.remove_friend(@friend)
+    if current_user.remove_friend(@friend)
+      flash[:sucess] = "Friend removed"
+    end
     redirect_to request.referrer
   end
 end
