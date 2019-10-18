@@ -55,4 +55,24 @@ RSpec.describe Friendship, type: :model do
       expect(assc.macro).to eql :belongs_to
     end
   end
+
+  # create a two users, 
+  # create friendship between user1 and user2
+  # expect friendship.count.to change_by(2)
+
+  describe 'create_inverse_relationship' do
+    it 'ensures two rows for each record of friendship created' do
+      @two_users = create_pair(:user)
+      expect{Friendship.create(user: @two_users[0], friend: @two_users[1])
+      }.to change{Friendship.count}.by(2)
+    end
+  end
+
+  describe 'destroy_inverse_relationship' do
+    it 'ensures two rows for each record of friendship is destroyed' do
+      @two_users = create_pair(:user)
+      Friendship.create(user: @two_users[0], friend: @two_users[1])
+      expect{Friendship.first.destroy}.to change{Friendship.count}.by(-2)
+    end
+  end
 end
