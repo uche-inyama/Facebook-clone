@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
- 
   describe 'validation' do
     it 'ensures presence of a user' do
       @two_users = create_pair(:user)
@@ -39,7 +40,7 @@ RSpec.describe Friendship, type: :model do
       it "ensures a friend can't befriend himself " do
         @users = create_list(:user, 1)
         @request1 = Friendship.new(user: @users[0], friend: @users[0])
-        expect {@request1.save!}.to  raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Can't befriend yourself")
+        expect { @request1.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Can't befriend yourself")
       end
     end
   end
@@ -56,15 +57,16 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  # create a two users, 
+  # create a two users,
   # create friendship between user1 and user2
   # expect friendship.count.to change_by(2)
 
   describe 'create_inverse_relationship' do
     it 'ensures two rows for each record of friendship created' do
       @two_users = create_pair(:user)
-      expect{Friendship.create(user: @two_users[0], friend: @two_users[1])
-      }.to change{Friendship.count}.by(2)
+      expect do
+        Friendship.create(user: @two_users[0], friend: @two_users[1])
+      end.to change { Friendship.count }.by(2)
     end
   end
 
@@ -72,7 +74,7 @@ RSpec.describe Friendship, type: :model do
     it 'ensures two rows for each record of friendship is destroyed' do
       @two_users = create_pair(:user)
       Friendship.create(user: @two_users[0], friend: @two_users[1])
-      expect{Friendship.first.destroy}.to change{Friendship.count}.by(-2)
+      expect { Friendship.first.destroy }.to change { Friendship.count }.by(-2)
     end
   end
 end

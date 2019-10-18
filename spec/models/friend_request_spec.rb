@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe FriendRequest, type: :model do
-
   describe 'validation' do
     it 'ensures presence of a user' do
       @two_users = create_pair(:user)
@@ -39,17 +40,23 @@ RSpec.describe FriendRequest, type: :model do
       it "ensures a friend can't send a friend request to himself " do
         @users = create_list(:user, 1)
         @request1 = FriendRequest.new(user: @users[0], friend: @users[0])
-        expect {@request1.save!}.to  raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Can't befriend yourself")
+        expect do
+          @request1.save!
+        end.to raise_error(ActiveRecord::RecordInvalid,
+                           'Validation failed: Friend invalid')
       end
     end
   end
 
   describe 'not_yet_friends' do
-    it "ensures a friendship does not recieve a friend_request" do
+    it 'ensures a friendship does not recieve a friend_request' do
       @users = create_list(:user, 2)
       Friendship.create(user: @users[0], friend: @users[1])
       @request = FriendRequest.new(user: @users[0], friend: @users[1])
-      expect {@request.save!}.to  raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Already friends")
+      expect do
+        @request.save!
+      end.to raise_error(ActiveRecord::RecordInvalid,
+                         'Validation failed: Friend Already friends')
     end
   end
 

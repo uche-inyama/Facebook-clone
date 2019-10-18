@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendRequestsController < ApplicationController
   def index
     @incoming = FriendRequest.where(friend: current_user)
@@ -7,9 +9,7 @@ class FriendRequestsController < ApplicationController
   def create
     friend = User.find(params[:user_id])
     @friend_request = current_user.friend_requests.build(friend: friend)
-    if @friend_request.save
-      flash[:success] = "Request sent"
-    end
+    flash[:success] = 'Request sent' if @friend_request.save
     redirect_to request.referrer
   end
 
@@ -24,5 +24,4 @@ class FriendRequestsController < ApplicationController
     @friend_request.destroy
     redirect_to request.referrer
   end
-
 end
