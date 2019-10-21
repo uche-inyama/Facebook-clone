@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   
   root to: 'posts#index'
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+<<<<<<< HEAD
   
+=======
+>>>>>>> parent of dfbf9b1... setting up omniauth-facebook
   resources :users, only: [:index, :show]
   resources :posts
   resources :comments
