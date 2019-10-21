@@ -261,6 +261,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of dfbf9b1... setting up omniauth-facebook
 =======
 
 >>>>>>> parent of dfbf9b1... setting up omniauth-facebook
