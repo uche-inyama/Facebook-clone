@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
   root to: 'posts#index'
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path: '', 
+  path_names: { sign_in: 'login', sign_out: 'logout'}, 
+  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   resources :users, only: [:index, :show]
   resources :posts
   resources :comments
