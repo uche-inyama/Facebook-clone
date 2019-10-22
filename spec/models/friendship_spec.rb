@@ -15,32 +15,33 @@ RSpec.describe Friendship, type: :model do
       @request = Friendship.new(user: @two_users[0], friend: nil)
       expect(@request.save).to eq(false)
     end
+
+    it 'ensures there is a corresponding friend request' do
+      @two_users = create_pair(:user)
+      @friendship = Friendship.new(user: @two_users[0], friend: @two_users[1])
+      expect(@friendship.save).to eq(false)
+    end
   end
 
   describe 'uniqueness of friend' do
     context 'friendship from same user' do
       it 'ensures uniqueness of friend for a particular user' do
         @two_users = create_pair(:user)
-        @request1 = Friendship.create(user: @two_users[0], friend: @two_users[1])
-        @request2 = Friendship.new(user: @two_users[0], friend: @two_users[1])
-        expect(@request2.save).to eq(false)
+        @request1 = FriendRequest.create(user: @two_users[0], friend: @two_users[1])
+        @friendship1 = Friendship.create(user: @two_users[0], friend: @two_users[1])
+        @friendship2 = Friendship.new(user: @two_users[0], friend: @two_users[1])
+        expect(@friendship2.save).to eq(false)
       end
     end
 
     context 'friendship from a different user' do
       it 'ensures uniqueness of friend for a particular user' do
         @users = create_list(:user, 3)
-        @request1 = Friendship.create(user: @users[0], friend: @users[1])
-        @request2 = Friendship.new(user: @users[2], friend: @users[1])
+        @request1 = FriendRequest.create(user: @users[0], friend: @users[1])
+        @friendship1 = Friendship.create(user: @users[0], friend: @users[1])
+        @request2 = FriendRequest.create(user: @users[2], friend: @users[1])
+        @friendship2 = Friendship.new(user: @users[2], friend: @users[1])
         expect(@request2.save).to eq(true)
-      end
-    end
-
-    context 'friendship from a user to himself' do
-      it "ensures a friend can't befriend himself " do
-        @users = create_list(:user, 1)
-        @request1 = Friendship.new(user: @users[0], friend: @users[0])
-        expect { @request1.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Friend Can't befriend yourself")
       end
     end
   end
@@ -57,13 +58,10 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  # create a two users,
-  # create friendship between user1 and user2
-  # expect friendship.count.to change_by(2)
-
   describe 'create_inverse_relationship' do
     it 'ensures two rows for each record of friendship created' do
       @two_users = create_pair(:user)
+      FriendRequest.create(user: @two_users[0], friend: @two_users[1])
       expect do
         Friendship.create(user: @two_users[0], friend: @two_users[1])
       end.to change { Friendship.count }.by(2)
@@ -73,8 +71,17 @@ RSpec.describe Friendship, type: :model do
   describe 'destroy_inverse_relationship' do
     it 'ensures two rows for each record of friendship is destroyed' do
       @two_users = create_pair(:user)
+      FriendRequest.create(user: @two_users[0], friend: @two_users[1])
       Friendship.create(user: @two_users[0], friend: @two_users[1])
       expect { Friendship.first.destroy }.to change { Friendship.count }.by(-2)
+    end
+  end
+
+  describe 'destroy friend request after create' do
+    it 'ensures that friend request is destroyed after friendship is created' do
+      @users = create_pair(:user)
+      FriendRequest.create(user: @users[0], friend: @users[1])
+      expect { Friendship.create(user: @users[0], friend: @users[1]) }.to change { FriendRequest.count }.by(-1)
     end
   end
 end

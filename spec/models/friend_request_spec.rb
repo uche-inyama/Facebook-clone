@@ -51,6 +51,7 @@ RSpec.describe FriendRequest, type: :model do
   describe 'not_yet_friends' do
     it 'ensures a friendship does not recieve a friend_request' do
       @users = create_list(:user, 2)
+      FriendRequest.create(user: @users[0], friend: @users[1])
       Friendship.create(user: @users[0], friend: @users[1])
       @request = FriendRequest.new(user: @users[0], friend: @users[1])
       expect do
