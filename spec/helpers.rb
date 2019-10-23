@@ -20,4 +20,16 @@ module Helpers
     fill_in 'Password', with: '1234asdf'
     click_button 'Log in'
   end
+
+  def create_post
+    fill_in 'Create a post', with: 'My new post'
+    click_button 'Post'
+  end
+
+  def comment_post
+    comment = find('#comment_body', match: :first)
+    comment.fill_in with: 'a new comment'
+    # fill_in 'comment_body', with: 'a new comment'
+    click_button('Comment', match: :first)
+  end
 end

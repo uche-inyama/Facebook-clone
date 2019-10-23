@@ -4,8 +4,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @friends = current_user.friends
+    @posts = Post.where(user: current_user).or(Post.where(user: @friends)).order(created_at: :desc)
     @post = Post.new
+    @comment = Comment.new
   end
 
   def new
@@ -14,13 +16,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = 'Post successfully created'
-      redirect_to posts_path
-    else
-      flash.now[:danger] = 'Post cannot be blank'
-      render 'new'
-    end
+    flash[:success] = 'Post successfully created' if @post.save
+    redirect_to request.referrer
   end
 
   def edit
@@ -40,9 +37,11 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find_by(id: params[:id])
-    @post.delete
-    flash[:success] = 'Post deleted'
-    redirect_to posts_path
+    if @post.comments.empty?
+      @post.delete
+      flash[:success] = 'Post deleted'
+    end
+    redirect_to request.referrer
   end
 
   private

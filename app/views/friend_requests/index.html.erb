@@ -1,0 +1,11 @@
+<h5> Respond to friend requests</h5>
+<% @incoming.each do |request| %>
+  <%= gravatar_for request.user %><%=link_to "#{request.user.first_name} #{request.user.surname}", user_path(request.user) %>
+  <%= button_to 'Accept request', friend_request_path(request),method: :patch %>
+<% end %>
+
+<h5> Your pending friends </h5>
+<% @outgoing.each do |request| %>
+  <%= gravatar_for request.friend %><%=link_to "#{request.friend.first_name} #{request.friend.surname}", user_path(request.friend) %>
+  <%= button_to 'Cancel request', friend_request_path(request), method: :delete %>
+<% end %>
