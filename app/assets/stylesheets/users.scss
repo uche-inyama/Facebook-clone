@@ -4,8 +4,14 @@
 
 .col{
     margin: 0 auto;
-    width: 300px;
+    width: 100px;
  }
  .field{
     padding-bottom: 10px;
+ }
+
+ .nav{
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
  }
