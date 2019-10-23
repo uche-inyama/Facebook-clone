@@ -21,13 +21,17 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
  ![ERD](doc/FacebookERD(2).png)
 
+
 ### Technologies(gems) used for this project
 - [x] RSpec with Capybara
 - [x] Factory-bot with Faker
 - [x] Devise
 - [x] Facebook's Omniauth
 - [x] Postgresql
+<<<<<<< HEAD
 
 ## Contributors
 1. [Inyama, Uchechukwu](https://github.com/uche-inyama)
 2. [Moses Ogwo](https://github.com/mosesogwo)
+=======
+>>>>>>> entity-relational-diagram
