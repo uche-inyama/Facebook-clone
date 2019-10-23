@@ -10,16 +10,18 @@
   </head>
 
   <body>
-  <% if current_user %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
-    <%= link_to 'User profile', user_path(current_user) %>
-  <% else %>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    <%= link_to 'Sign in', new_user_session_path %>
-  <% end %>
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% if current_user %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+      <%= link_to 'User profile', user_path(current_user) %>
+      <%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user) %>
+      <%= link_to 'Friends', user_friendships_path(current_user) %>
+    <% else %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
     <% end %>
-    <%= yield %>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+      <%= yield %>
   </body>
 </html>
