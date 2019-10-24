@@ -1,0 +1,29 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.col{
+    margin: 0 auto;
+    width: 400px;
+ }
+ .field{
+    padding-bottom: 10px;
+ }
+
+ .nav{
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     .nav-link {
+        color: white;
+     }
+ }
+ .p-5 {
+     margin: 100px auto;
+ }
+ .mb-5{
+     margin: 10px 0px;
+ }
+ .mt-5{
+     margin-top: 10px;
+ }
