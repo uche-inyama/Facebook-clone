@@ -8,9 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+    
   <body>
-    <ul class = "nav  d-flex flex-row justify-content-end text-white bg-primary">
+    <ul class = "nav d-flex flex-row justify-content-end text-white bg-primary">
       <%if current_user %>
         <li ><%= link_to 'User profile', user_path(current_user), class: "nav-link" %></li>
         <li><%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user), class: "nav-link" %></li>
