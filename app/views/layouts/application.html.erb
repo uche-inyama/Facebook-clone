@@ -10,22 +10,19 @@
   </head>
 
   <body>
-  <ul class = "nav  bg-primary">
-    <%if current_user %>
-      <li ><%= link_to 'User profile', user_path(current_user), class: "nav-link" %></li>
-      <li><%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user), class: "nav-link" %></li>
-      <li><%= link_to 'Friends', user_friendships_path(current_user), class: "nav-link" %></li>
-      <li><%= link_to "Logout", destroy_user_session_path, method: :delete,  class: "nav-link" %></li>
-
-    <% else %>
-      <li><%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %></li>
-      <li><%= link_to 'Sign in', new_user_session_path, class: "nav-link" %></li>
-      <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link" %></li>
-    <% end %>
-    <%# <% flash.each do |key, value| %>
-      <%# <%= content_tag :div, value, class: "flash #{key}" %>
-    <%# <% end %> 
-  </ul>
-  <%= yield %>
+      <%if current_user %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+          <%= link_to 'User profile', user_path(current_user) %>
+          <%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user) %>
+          <%= link_to 'Friends', user_friendships_path(current_user) %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path %>
+          <%= link_to 'Sign in', new_user_session_path %>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+      <% end %>
+       <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+        <% end %>
+        <%= yield %>
   </body>
 </html>
