@@ -1,7 +1,7 @@
 <div class = 'container d-flex justify-content-center'>
   <div class = "form-div sign-in-form p-3 mt-5 mb-5">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <h4 class='text-center form-title'>Sign in</h4>
+      <h4 class='text-left form-title'>Sign in</h4>
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
