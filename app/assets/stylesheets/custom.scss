@@ -1,11 +1,5 @@
 @import "bootstrap";
 
-
-body {
-  // background-color: #E2E1E1;
-}
-
-
 .form-div {
     width: 30%;
     margin-top: 40px;
@@ -50,3 +44,7 @@ body {
   font-weight: bold;
 }
 
+.submit {
+  font-size: 18px;
+  padding: 0.5em 1em;
+}
