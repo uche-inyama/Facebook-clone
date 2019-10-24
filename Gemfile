@@ -11,8 +11,6 @@ gem 'font-awesome-rails'
 gem 'gravatar_image_tag'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'omniauth-facebook'
-gem 'bootstrap-sass'
-gem 'popper_js', '~> 1.14.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
