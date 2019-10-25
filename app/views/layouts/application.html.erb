@@ -22,12 +22,10 @@
         <li><%= link_to 'Sign in', new_user_session_path, class: "nav-link text-white" %></li>
         <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link text-white" %></li>
       <% end %>
-      <div>
-        <% flash.each do |key, value| %>
-          <%= content_tag :div, value, class: "flash #{key}" %>
-        <% end %>
-      </div> 
     </ul>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
       <%= yield %>
   </body>
 </html>
