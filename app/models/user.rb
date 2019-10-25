@@ -27,7 +27,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.first_name = auth.info.first_name
       user.surname = auth.info.last_name
-      # user.date_of_birth = auth.extra.raw_info.birthday
+      user.date_of_birth = 20.years.ago
       user.gender = auth.extra.raw_info.gender   # assuming the user model has a name
       # user.image = auth.info.image # assuming the user model has an image
       # If you are using confirmable and the provider(s) you use validate emails, 
