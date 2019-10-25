@@ -10,22 +10,25 @@
   </head>
     
   <body>
-    <ul class = "nav d-flex flex-row justify-content-end text-white bg-primary">
-      <%if current_user %>
-        <li ><%= link_to 'User profile', user_path(current_user), class: "nav-link" %></li>
-        <li><%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user), class: "nav-link" %></li>
-        <li><%= link_to 'Friends', user_friendships_path(current_user), class: "nav-link" %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete,  class: "nav-link" %></li>
+    <nav class = "nav-light bg-tertiary d-flex flex-row justify-content-end">
+      <ul class = "nav  text-white pt-2 pb-2">
+        <a class= "navbar-brand logo" href="#">facebook</a>
+        <%if current_user %>nav-link
+          <li><%= link_to 'User profile', user_path(current_user), class: "nav-link" %></li>
+          <li><%= link_to "Friend Request(s) #{incoming_requests.count}", friend_requests_path(current_user), class: "nav-link" %></li>
+          <li><%= link_to 'Friends', user_friendships_path(current_user), class: "nav-link" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete,  class: "nav-link" %></li>
 
-      <% else %>
-        <li><%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %></li>
-        <li><%= link_to 'Sign in', new_user_session_path, class: "nav-link" %></li>
-        <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link" %></li>
-      <% end %>
-      <%# <% flash.each do |key, value| %>
-        <%# <%= content_tag :div, value, class: "flash #{key}" %>
-      <%# <% end %> 
-    </ul>
-      <%= yield %>
+        <% else %>
+          <li><%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %></li>
+          <li><%= link_to 'Sign in', new_user_session_path, class: "nav-link" %></li>
+          <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link" %></li>
+        <% end %>
+        <%# <% flash.each do |key, value| %>
+          <%# <%= content_tag :div, value, class: "flash #{key}" %>
+        <%# <% end %> 
+      </ul>
+    </nav>
+    <%= yield %>
   </body>
 </html>

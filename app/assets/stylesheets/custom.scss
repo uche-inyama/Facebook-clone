@@ -1,15 +1,30 @@
 @import "bootstrap";
 
+.bg-tertiary{
+    background-color: #0000b2;
+}
+
 .col{
     width: 100%;
     margin-top: 40px;
 }
 
 .field, .actions{
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
 }
 
 .nav-link{
     color: white;
+    font-weight: 400;
+}
+.nav-link:hover{
+    background: #000080;
+    color: #fff;
+    border-radius: 5px;
+}
+.logo{
+    color: #fff;
+    font-weight: 800;
+    margin-right: 800px;
 }
