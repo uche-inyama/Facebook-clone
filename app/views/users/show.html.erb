@@ -22,7 +22,7 @@
       <% else  %>
         <div class='mb-5'>
           <% @posts.each do |post| %>
-            <div class='post mb-5 bg-light'>
+            <div class='post mb-5 p-3 bg-light'>
               <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small><br>
               <div class='post-body'><%= post.body %><br></div>
               <div class='post-links'>

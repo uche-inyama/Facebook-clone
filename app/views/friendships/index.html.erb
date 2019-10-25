@@ -3,7 +3,7 @@
 <% @friends.each do |friend| %>
   <div class='d-flex align-items-end justify-content-between mb-3'>
     <div>
-      <%= gravatar_for friend %><%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
+      <%= gravatar_for friend %> <%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
     </div>
     <div>
       <%= button_to 'Unfriend', user_friendship_path(current_user, friend), method: :delete %>
