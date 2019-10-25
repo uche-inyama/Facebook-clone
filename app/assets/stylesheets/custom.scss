@@ -1,64 +1,15 @@
 @import "bootstrap";
 
-.form-div {
-    width: 30%;
+.col{
+    width: 100%;
     margin-top: 40px;
-    background-color: white;
-    border-radius: 18px;
-    padding: 10em 0;
-    a {
-      padding: 2em 0;
-    } 
 }
 
-.sign-in-form .field {
-  padding: 1em 0.5em;
-}
-
-.sign-in-form .rem-check {
-  padding: 0.5em;
-}
-
-
-.field, .actions, .form-title {
-    width: 92%;
+.field, .actions{
+    width: 30%;
     margin: 0 auto;
-    padding: 0.5em;
-    background-clip: white;
-
-    label {
-      padding-bottom: 3px;
-    }
 }
 
-.form-links {
-  padding: 0.3em 0;
-  text-align: center;
-}
-
-.session-link{
-    padding: 20px;
-}
-
-.form-title {
-  font-weight: bold;
-}
-
-.submit {
-  font-size: 18px;
-  padding: 0.5em 1em;
-}
-
-.all-users-container {
-  width: 40%;
-  margin: 0 auto;
-}
-
-.gravatar {
-  height: 4em;
-  width: 4em;
-}
-
-.body {
-  background-color: whitesmoke;
+.nav-link{
+    color: white;
 }
