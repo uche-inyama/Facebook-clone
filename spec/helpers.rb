@@ -18,7 +18,7 @@ module Helpers
     visit '/login'
     fill_in 'Email', with: email
     fill_in 'Password', with: '1234asdf'
-    click_button 'Sign in'
+    click_button 'Log in'
   end
 
   def create_post

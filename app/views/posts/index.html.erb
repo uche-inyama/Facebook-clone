@@ -24,7 +24,7 @@
         </div>
       <div class='ml-3'>
       <% post.comments.each do |comment| %>
-        <div class='mb-2'>
+        <div class='mb-2' id='comment_div'>
           <small><%= link_to "#{comment.user.first_name}:", user_path(comment.user) %></small>
           <small class='font-italic'><%= comment.body %></small><br>
           <div class='comment-links'>

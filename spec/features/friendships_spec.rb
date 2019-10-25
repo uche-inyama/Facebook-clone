@@ -5,11 +5,11 @@ require 'rails_helper'
 RSpec.feature 'Friendship' do
   scenario 'remove a friend from friendship' do
     register_user('uchenry.iny2@gmail.com')
-    click_on 'Sign out'
+    click_on 'Logout'
     register_user('xyz2@gmail.com')
     visit users_path
     click_on('Add friend', match: :first)
-    click_on 'Sign out'
+    click_on 'Logout'
     sign_in_user('uchenry.iny2@gmail.com')
     visit friend_requests_path
     click_on('Accept request')
