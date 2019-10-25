@@ -3,7 +3,7 @@
   <% @incoming.each do |request| %>
   <div class='d-flex align-items-end justify-content-between mb-3'>
     <div>
-      <%= gravatar_for request.user %><%=link_to "#{request.user.first_name} #{request.user.surname}", user_path(request.user) %>
+      <%= gravatar_for request.user %> <%=link_to "#{request.user.first_name} #{request.user.surname}", user_path(request.user) %>
     </div>
     <div>
       <%= button_to 'Accept request', friend_request_path(request),method: :patch %>
@@ -18,7 +18,7 @@
   <% @outgoing.each do |request| %>
   <div class='d-flex align-items-end justify-content-between mb-3'>
     <div>
-      <%= gravatar_for request.friend %><%=link_to "#{request.friend.first_name} #{request.friend.surname}", user_path(request.friend) %>
+      <%= gravatar_for request.friend %> <%=link_to "#{request.friend.first_name} #{request.friend.surname}", user_path(request.friend) %>
     </div>
     <div>
       <%= button_to 'Cancel request', friend_request_path(request), method: :delete %>
