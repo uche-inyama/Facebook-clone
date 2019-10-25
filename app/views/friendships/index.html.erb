@@ -1,5 +1,13 @@
-<h5>All friends</h5>
+<div class='all-users-container d-flex flex-column mb-5'>
+<h4 class='text-left font-weight-bold mb-5 mt-5'>All friends</h4>
 <% @friends.each do |friend| %>
-  <%= gravatar_for friend %><%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
-  <%= button_to 'Unfriend', user_friendship_path(current_user, friend), method: :delete %>
+  <div class='d-flex align-items-end justify-content-between mb-3'>
+    <div>
+      <%= gravatar_for friend %><%=link_to "#{friend.first_name} #{friend.surname}", user_path(friend) %>
+    </div>
+    <div>
+      <%= button_to 'Unfriend', user_friendship_path(current_user, friend), method: :delete %>
+    </div>
+  </div>
 <% end %>
+</div>

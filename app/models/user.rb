@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
-  validates_presence_of :first_name, :surname, :gender#, :date_of_birth
+  validates_presence_of :first_name, :surname, :gender, :date_of_birth
   has_many :posts
   has_many :comments
   has_many :likes

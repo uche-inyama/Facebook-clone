@@ -14,7 +14,7 @@ RSpec.feature 'friend_request' do
     register_user('xyz@gmail.com')
     visit users_path
     click_on('Add friend', match: :first)
-    expect(page).to have_content('Request sent')
+    expect(page).to have_content('Friend request sent')
   end
   scenario 'recieving a friend Request' do
     sign_in_user('uchenry.iny@gmail.com')

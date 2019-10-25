@@ -9,7 +9,7 @@ RSpec.feature 'Sign in' do
     visit '/login'
     fill_in 'Email', with: 'uac2@gmail.com'
     fill_in 'Password', with: '1234asdf'
-    click_button 'Log in'
+    click_button 'Sign in'
     expect(page).to have_content 'Signed in successfully.'
   end
 
@@ -17,7 +17,7 @@ RSpec.feature 'Sign in' do
     visit '/login'
     fill_in 'Email', with: 'uac2@gmail.com'
     fill_in 'Password', with: '1234456'
-    click_button 'Log in'
+    click_button 'Sign in'
     expect(page).to have_content 'Invalid Email or password.'
   end
 end
