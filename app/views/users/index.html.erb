@@ -1,13 +1,19 @@
-<h3>Connect with others:</h3>
-
-<% @users.each do |user| %>
-  <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %>
-  <% if current_user.pending_friends.include?user %>
-    <h6>Friend request sent </h6>
-  <% elsif current_user.friends.include?user %>
-    <%= button_to 'Unfriend', user_friendship_path(current_user, user), method: :delete %>
-  <% else %>
-    <%= button_to 'Add friend', user_friend_requests_path(user), method: :post %>
+<div class='all-users-container d-flex flex-column mb-5'>
+  <h4 class='text-left font-weight-bold mb-5 mt-5'>Connect with others:</h4>
+  <% @users.each do |user| %>
+    <div class='d-flex align-items-end justify-content-between mb-3'>
+    <div>
+      <%= gravatar_for user %><%=link_to "#{user.first_name} #{user.surname}", user_path(user) %>
+    </div>
+    <div>
+      <% if current_user.pending_friends.include?user %>
+        <h6>Friend request sent </h6>
+      <% elsif current_user.friends.include?user %>
+        <%= button_to 'Unfriend', user_friendship_path(current_user, user), method: :delete %>
+      <% else %>
+        <%= button_to 'Add friend', user_friend_requests_path(user), method: :post %>
+      <% end %>
+    </div>
+    </div>
   <% end %>
-  <br>
-<% end %>
+</div>
