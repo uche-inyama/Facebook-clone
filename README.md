@@ -28,10 +28,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 - [x] Devise
 - [x] Facebook's Omniauth
 - [x] Postgresql
-<<<<<<< HEAD
 
 ## Contributors
 1. [Inyama, Uchechukwu](https://github.com/uche-inyama)
 2. [Moses Ogwo](https://github.com/mosesogwo)
-=======
->>>>>>> entity-relational-diagram
