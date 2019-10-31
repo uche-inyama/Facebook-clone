@@ -1,6 +1,6 @@
 # FACEBOOK-PROJECT
 
-This project, Odin-Facebook, implements basic facebook features.
+This project, Odin-Facebook, implements the basic facebook features.
 
 #### Here's the [live version](https://dry-retreat-55732.herokuapp.com)
 
@@ -22,6 +22,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
      
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
  ![ERD](doc/FacebookERD(2).png)
+
 
 ### Technologies(gems) used for this project
 - [x] RSpec with Capybara
