@@ -20,15 +20,6 @@ RSpec.describe User, type: :model do
       expect(user.save).to eq(false)
     end
 
-    it 'ensures presence of date_of_birth' do
-      user.date_of_birth = nil
-      expect(user.save).to eq(false)
-    end
-
-    it 'ensures presence of gender' do
-      user.gender = nil
-      expect(user.save).to eq(false)
-    end
   end
 
   context 'Associations' do
