@@ -2,7 +2,7 @@
 
 This project, Odin-Facebook, implements basic facebook features.
 
-#### Here's the [live version](https://dry-retreat-55732.herokuapp.com)
+#### Here is the [live version](https://dry-retreat-55732.herokuapp.com)
 
 The full project requirement can be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
