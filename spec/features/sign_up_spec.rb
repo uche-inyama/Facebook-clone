@@ -26,6 +26,6 @@ RSpec.feature 'sign_up' do
     page.find('#user_date_of_birth').set('')
     select('Male', from: 'user_gender')
     click_button 'Sign up'
-    expect(page).to have_content '5 errors prohibited this user from being saved'
+    expect(page).to have_content '4 errors prohibited this user from being saved'
   end
 end
