@@ -1,6 +1,6 @@
 # FACEBOOK-PROJECT
 
-This project, Odin-Facebook, implements basic facebook features.
+This project, Odin-Facebook, implements the basic facebook features.
 
 #### Here is the [live version](https://dry-retreat-55732.herokuapp.com)
 
