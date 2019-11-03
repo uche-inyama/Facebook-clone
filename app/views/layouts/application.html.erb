@@ -10,14 +10,14 @@
   </head>
     
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">Talebook</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
           <%if current_user %>
             <li class="nav-item active"><%= link_to posts_path, class: "nav-link" do %>
             Home
@@ -42,7 +42,7 @@
             <li class="nav-item"><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link" %></li>
           <% end %>
         </ul>
-        </div>
+      </div>
     </nav>
 
 
