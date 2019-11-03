@@ -1,0 +1,49 @@
+@import "bootstrap";
+
+// .bg-tertiary{
+//     background-color: #0000b2;
+// }
+
+// .col{
+//     width: 100%;
+//     margin-top: 40px;
+//     border-radius: 10px;
+// }
+
+.field, .actions{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.all-users-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.post-index-container {
+  width: 40%;
+  margin: 0 auto;
+  .post {
+    width: 80%;
+  }
+}
+
+.gravatar {
+  height: 4em;
+  width: 4em;
+}
+
+.post-body {
+  font-size: 1.1em;
+}
+
+.post-links, .comment-links, .comment-form {
+  font-size: 0.8em;
+}
+
+.post {
+  width: 50%;
+  border-radius: 10px;
+}
+
