@@ -1,8 +1,8 @@
 @import "bootstrap";
 
-// body {
-//   background-color: #e3f2fd;
-// }
+body {
+  background-color: #d2e3f0;
+}
 
 .navbar {
   background-color: #e3f2fd;
@@ -26,11 +26,20 @@
 }
 
 .post-index-container {
-  width: 40%;
+  background-color: white;
+  width: 60%;
   margin: 0 auto;
   .post {
-    width: 80%;
+    width: 100%;
   }
+}
+
+.post-form input, .post-form #post_body {
+  width: 100%;
+}
+
+#comment_body {
+  width: 70%;
 }
 
 .gravatar {

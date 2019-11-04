@@ -1,32 +1,32 @@
-<div class='container post-index-container'>
-  <h4 class='text-left font-weight-bold mb-5 mt-5'>Timeline</h4>
-  <div class='mb-3'>
-    <%= form_for(@post) do |f| %>
-      <%= f.label :body, 'Create a post' %><br/>
+<div class='container post-index-container p-3'>
+  <%# <h4 class='text-left font-weight-bold mb-5 mt-5'>Taleline</h4> %>
+  <div class='mb-3 p-3 bg-light post-form'>
+    <%= form_for(@post)  do |f| %>
+      <%= f.label :body, 'Tell your tale', class: "font-weight-bold" %><br/>
       <%= f.text_area :body %>
-      <%= f.submit 'Post' %>
+      <%= f.submit 'Submit' %>
     <% end %>
   </div>
   <% if @posts.empty? %>
     <h4 class='text-center font-weight-bold mb-3 mt-3' >You don't have any posts yet!</h4>
    <% else  %>
     <% @posts.each do |post| %>
-      <div class='post mb-5 p-3 bg-light'>
+      <div class='post mb-3 p-3 bg-light ml-auto'>
         <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small><br>
-        <div class='post-body'><%= post.body %><br></div>
+        <div class='post-body mb-1'><%= post.body %><br></div>
         <div class='post-links mb-3'>
           <%= link_to 'Like', post_likes_path(post), method: :post %> 
           <%= post.likes.count %> <%= (post.likes.count) > 1 ? 'Like' : 'Likes'%>
           <% if current_user == post.user %>
           <small><%= link_to 'Edit', edit_post_path(post) %></small>
-          <small><%= link_to 'Delete', post_path(post), method: :delete %></small><br><br>
-          <% end %><br>
+          <small><%= link_to 'Delete', post_path(post), method: :delete %></small>
+          <% end %>
         </div>
       <div class='ml-3'>
       <% post.comments.each do |comment| %>
-        <div class='mb-2' id='comment_div'>
+        <div class='' id='comment_div'>
           <small><%= link_to "#{comment.user.first_name}:", user_path(comment.user) %></small>
-          <small class='font-italic'><%= comment.body %></small><br>
+          <small class=''><%= comment.body %></small><br>
           <div class='comment-links'>
             <%= link_to 'Like', comment_likes_path(comment), method: :post %>
               <small><%= comment.likes.count %> <%= (comment.likes.count) == 1 ? 'Like' : 'Likes'%></small>
