@@ -2,8 +2,8 @@
   <%# <h4 class='text-left font-weight-bold mb-5 mt-5'>Taleline</h4> %>
   <div class='mb-3 p-3 bg-light post-form'>
     <%= form_for(@post)  do |f| %>
-      <%= f.label :body, 'Tell your tale', class: "font-weight-bold" %><br/>
-      <%= f.text_area :body %>
+      <%= f.label :body, 'Tell your tale', class: "font-weight-bold" %>
+      <%= f.text_area :body, placeholder: "What's your story?" %>
       <%= f.submit 'Submit' %>
     <% end %>
   </div>
@@ -15,24 +15,30 @@
         <small><%= link_to "#{post.user.first_name}", user_path(post.user) %></small><br>
         <div class='post-body mb-1'><%= post.body %><br></div>
         <div class='post-links mb-3'>
-          <%= link_to 'Like', post_likes_path(post), method: :post %> 
-          <%= post.likes.count %> <%= (post.likes.count) > 1 ? 'Like' : 'Likes'%>
-          <% if current_user == post.user %>
-          <small><%= link_to 'Edit', edit_post_path(post) %></small>
-          <small><%= link_to 'Delete', post_path(post), method: :delete %></small>
+        <% if current_user == post.user %>
+          <small class='mr-2'><%= link_to 'Edit', edit_post_path(post) %></small>
+          <small class='mr-2'><%= link_to 'Delete', post_path(post), method: :delete %></small>
+          <% end %>
+          <% if post.likes.exists?(user: current_user) %>
+          <small class='mr-2 font-weight-bold'><%= link_to "Like(#{post.likes.count})", post_likes_path(post), method: :post %></small>
+          <% else %>
+          <small class='mr-2'><%= link_to "Like(#{post.likes.count})", post_likes_path(post), method: :post %></small>
           <% end %>
         </div>
       <div class='ml-3'>
       <% post.comments.each do |comment| %>
-        <div class='' id='comment_div'>
-          <small><%= link_to "#{comment.user.first_name}:", user_path(comment.user) %></small>
-          <small class=''><%= comment.body %></small><br>
+        <div class='mb-2' id='comment_div'>
+          <%= link_to "#{comment.user.first_name}:", user_path(comment.user) %>
+          <%= comment.body %>
           <div class='comment-links'>
-            <%= link_to 'Like', comment_likes_path(comment), method: :post %>
-              <small><%= comment.likes.count %> <%= (comment.likes.count) == 1 ? 'Like' : 'Likes'%></small>
             <% if current_user == comment.user %>
-              <small><%= link_to 'Edit', edit_comment_path(comment) %></small>
-              <small><%= link_to 'Delete', comment_path(comment), method: :delete %></small><br><br>
+              <small class="mr-2"><%= link_to 'Edit', edit_comment_path(comment) %></small>
+              <small class="mr-2"><%= link_to 'Delete', comment_path(comment), method: :delete %></small>
+            <% end %>
+            <% if comment.likes.exists?(user: current_user) %>
+              <small class="mr-2 font-weight-bold"><%= link_to "Like(#{comment.likes.count})", comment_likes_path(comment), method: :post %></small>
+            <% else %>
+              <small class="mr-2"><%= link_to "Like(#{comment.likes.count})", comment_likes_path(comment), method: :post %></small>
             <% end %>
           </div>
         </div>
@@ -41,9 +47,9 @@
       <div class='ml-3 comment-form'>
         <%= form_for(@comment) do |f| %>
           <%= f.hidden_field :post_id, value: post.id  %>
-          <%= f.text_field :body %>
+          <%= f.text_field :body, placeholder: "Leave a comment" %>
           <%= f.submit 'Comment' %>
-        <% end  %><br>
+        <% end  %>
       </div>
       </div>
   <% end %>
