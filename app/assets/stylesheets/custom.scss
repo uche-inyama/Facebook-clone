@@ -9,11 +9,6 @@ body {
   background-color: #e3f2fd;
 }
 
-// .col{
-//     width: 100%;
-//     margin-top: 40px;
-//     border-radius: 10px;
-// }
 
 .field, .actions{
     width: 50%;
@@ -22,8 +17,12 @@ body {
 
 
 .all-users-container {
-  width: 40%;
+  width: 90%;
   margin: 0 auto;
+}
+
+.request-col {
+  background-color: white;
 }
 
 .post-index-container {
