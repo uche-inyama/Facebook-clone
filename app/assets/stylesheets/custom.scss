@@ -11,7 +11,7 @@ body {
 
 
 .field, .actions{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -29,6 +29,12 @@ body {
   width: 50%;
   margin: 0 auto;
   background-color: white;
+}
+
+.form-container {
+  width: 50%;
+  background-color: white;
+  border-radius: 25px;
 }
 
 .post-index-container {
@@ -70,3 +76,6 @@ small {
   font-size: 0.8rem;
 }
 
+.submit {
+  width: 100%;
+}
