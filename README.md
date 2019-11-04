@@ -21,7 +21,7 @@ The full project requirement can be found [here](https://www.theodinproject.com/
 [Watch this sample video](https://www.youtube.com/watch?v=5RTHaVvj97I) as a general guide for cloning a github repository.
      
 ### Below is the Entity Relational Diagram for designing our Model and Associations.
- ![ERD](doc/FacebookERD(2).png)
+ ![ERD](./doc/Facebook_erd.png)
 
 
 ### Technologies(gems) used for this project
