@@ -1,4 +1,8 @@
-<%= form_for(@comment) do |f| %>
-  <%= f.text_field :body %>
-  <%= f.submit 'Comment' %>
-<% end  %><br>
+<div class='container post-index-container p-3'>
+  <div class='mb-3 p-3 bg-light post-form'>
+    <%= form_for(@comment) do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit 'Comment' %>
+    <% end  %>
+  </div>
+</div>
