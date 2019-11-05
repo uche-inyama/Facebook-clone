@@ -37,9 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find_by(id: params[:id])
-    if @post.destroy
-      flash[:success] = 'Post deleted'
-    end
+    flash[:success] = 'Post deleted' if @post.destroy
     redirect_to request.referrer
   end
 
