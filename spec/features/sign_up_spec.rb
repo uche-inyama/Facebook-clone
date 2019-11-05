@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'sign_up' do
-  it 'signs me up' do
+  scenario 'signs me up' do
     visit new_user_registration_path
     fill_in 'First name', with: 'Uche'
     fill_in 'Surname', with: 'Inyama'
@@ -16,7 +16,7 @@ RSpec.feature 'sign_up' do
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
-  it 'does not sign me up, with invalid parameters' do
+  scenario 'does not sign me up, with invalid parameters' do
     visit new_user_registration_path
     fill_in 'First name', with: ' '
     fill_in 'Surname', with: ''

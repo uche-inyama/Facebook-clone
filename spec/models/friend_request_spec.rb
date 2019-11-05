@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe FriendRequest, type: :model do
-  describe 'validation' do
+  context 'validations' do
     it 'ensures presence of a user' do
       @two_users = create_pair(:user)
       @request = FriendRequest.new(user: nil, friend: @two_users[1])
@@ -17,7 +17,7 @@ RSpec.describe FriendRequest, type: :model do
     end
   end
 
-  describe 'uniqueness of friend' do
+  context 'uniqueness of friend' do
     context 'friend_request from same user' do
       it 'ensures uniqueness of friend for a particular user' do
         @two_users = create_pair(:user)

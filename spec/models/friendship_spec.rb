@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
-  describe 'validation' do
+  context 'validation' do
     it 'ensures presence of a user' do
       @two_users = create_pair(:user)
       @request = Friendship.new(user: nil, friend: @two_users[1])
@@ -23,7 +23,7 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'uniqueness of friend' do
+  context 'uniqueness of friend' do
     context 'friendship from same user' do
       it 'ensures uniqueness of friend for a particular user' do
         @two_users = create_pair(:user)
@@ -46,7 +46,7 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'Associations' do
+  context 'Associations' do
     it 'belongs to a user' do
       assc = described_class.reflect_on_association(:user)
       expect(assc.macro).to eql :belongs_to
@@ -58,7 +58,7 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'create_inverse_relationship' do
+  context 'create_inverse_relationship' do
     it 'ensures two rows for each record of friendship created' do
       @two_users = create_pair(:user)
       FriendRequest.create(user: @two_users[0], friend: @two_users[1])
@@ -68,7 +68,7 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'destroy_inverse_relationship' do
+  context 'destroy_inverse_relationship' do
     it 'ensures two rows for each record of friendship is destroyed' do
       @two_users = create_pair(:user)
       FriendRequest.create(user: @two_users[0], friend: @two_users[1])
@@ -77,7 +77,7 @@ RSpec.describe Friendship, type: :model do
     end
   end
 
-  describe 'destroy friend request after create' do
+  context 'destroy friend request after create' do
     it 'ensures that friend request is destroyed after friendship is created' do
       @users = create_pair(:user)
       FriendRequest.create(user: @users[0], friend: @users[1])

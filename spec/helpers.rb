@@ -11,7 +11,6 @@ module Helpers
     page.find('#user_date_of_birth').set('2000-10-04')
     select('Male', from: 'user_gender')
     click_button 'Sign up'
-    # click_on 'Sign out'
   end
 
   def sign_in_user(email)
@@ -22,14 +21,13 @@ module Helpers
   end
 
   def create_post
-    fill_in 'Create a post', with: 'My new post'
-    click_button 'Post'
+    fill_in 'Tell your tale', with: 'My new post'
+    click_button 'Submit'
   end
 
   def comment_post
     comment = find('#comment_body', match: :first)
     comment.fill_in with: 'a new comment'
-    # fill_in 'comment_body', with: 'a new comment'
     click_button('Comment', match: :first)
   end
 end

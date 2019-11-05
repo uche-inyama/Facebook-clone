@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Likes' do
-  scenario 'liking a post' do
+  scenario 'liking and unliking a post' do
     register_user('uac5@gmail.com')
     create_post
     click_on('Like', match: :first)
-    expect(page).to have_content('1 Like')
+    expect(page).to have_content('Like(1)')
     click_on('Like', match: :first)
-    expect(page).to have_content('0 Likes')
+    expect(page).to have_content('Like(0)')
   end
 
   scenario 'liking a comment' do
@@ -17,8 +17,8 @@ RSpec.feature 'Likes' do
     sign_in_user('uac5@gmail.com')
     comment_post
     within('#comment_div', match: :first) { click_on 'Like' }
-    within('#comment_div', match: :first) { expect(page).to have_content('1 Like') }
+    within('#comment_div', match: :first) { expect(page).to have_content('Like(1)') }
     within('#comment_div', match: :first) { click_on 'Like' }
-    within('#comment_div', match: :first) { expect(page).to have_content('0 Likes') }
+    within('#comment_div', match: :first) { expect(page).to have_content('Like(0)') }
   end
 end
