@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <% if @posts.empty? %>
-    <h4 class='text-center font-weight-bold mb-3 mt-3' >You don't have any posts yet!</h4>
+    <h4 class='text-center font-weight-bold mb-3 mt-3'>You don't have any posts yet!</h4>
    <% else  %>
     <% @posts.each do |post| %>
       <div class='post mb-3 p-3 bg-light ml-auto'>
@@ -47,7 +47,7 @@
       <div class='ml-3 comment-form'>
         <%= form_for(@comment) do |f| %>
           <%= f.hidden_field :post_id, value: post.id  %>
-          <%= f.text_field :body, placeholder: "Leave a comment" %>
+          <%= f.text_field :body, placeholder: "Leave a comment", class: "main-comment" %>
           <%= f.submit 'Comment' %>
         <% end  %>
       </div>

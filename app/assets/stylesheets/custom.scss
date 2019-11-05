@@ -50,7 +50,7 @@ body {
   width: 100%;
 }
 
-#comment_body {
+.comment-form #comment_body {
   width: 70%;
 }
 
@@ -77,5 +77,9 @@ small {
 }
 
 .submit {
+  width: 100%;
+}
+
+.comment-edit-text {
   width: 100%;
 }

@@ -1,7 +1,7 @@
 <div class='container post-index-container p-3'>
   <div class='mb-3 p-3 bg-light post-form'>
     <%= form_for(@comment) do |f| %>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, class: "comment-edit-text" %>
       <%= f.submit 'Comment' %>
     <% end  %>
   </div>
