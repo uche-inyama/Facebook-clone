@@ -45,11 +45,11 @@
       </div>
     </nav>
 
-
-
-    <% flash.each do |key, value| %>
-       <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %> 
+    <div class="m-3 font-weight-bold">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %> 
+    </div>
     <%= yield %>
   </body>
 </html>
