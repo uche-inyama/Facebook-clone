@@ -2,6 +2,8 @@
 
 Talebook is an implementation of basic Facebook features using Ruby on Rails.
 
+![](2020-03-16-13-55-03.png)
+
 The full project description can be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
 ## Live Version
