@@ -25,3 +25,7 @@ Visit http://localhost:3000/ on your browser to experience Talebook.
 ## Developers
 * [Inyama, Uchechukwu](https://github.com/uche-inyama)
 * [Moses Ogwo](https://github.com/mosesogwo)
+
+## 📝 License
+
+This project is [MIT](http://www.tldrlegal.com/license/mit-license) licensed.
