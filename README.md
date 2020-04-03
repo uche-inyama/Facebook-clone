@@ -1,6 +1,6 @@
 # Talebook
 
-Talebook is an implementation of basic Facebook (a social network) features using Ruby on Rails.
+Talebook is an implementation of Facebook's basic features using Ruby on Rails.
 
 ![](2020-03-16-13-55-03.png)
 
@@ -16,7 +16,19 @@ Feel free to check the app features using this default credential:
 
 > **Password:** *abc123???*
 
-## Getting started
+## Features
+- Posts or Tales: users can create, edit and delete posts.
+- Likes: users can like and unlike posts.
+- Comments: users can comment on posts, edit comments and delete comments.
+- Friendship: users can add and remove friends.
+- Authentication: users can sign up directly on the app or sign up with their Facebook account.
+
+## Upcoming Features
+- Authentication with Google account.
+- Friend suggestions.
+
+
+## Getting Started
 
 To run this project for development and testing purposes, you need to first install [Ruby (v2.5.5)](https://www.ruby-lang.org/en/documentation/installation/) and [Rails (v5.2.3)](https://rubygems.org/gems/rails/versions/5.2.3).
 
@@ -28,6 +40,7 @@ To run this project for development and testing purposes, you need to first inst
 
 - Visit http://localhost:3000/ on your browser to experience Talebook.
 
+
 ### Testing
 To run the tests in this project, follow these steps.
 - To ensure that all dependencies are installed, run `bundle install`
@@ -35,8 +48,18 @@ To run the tests in this project, follow these steps.
 
 
 ## Authors
-* [Inyama, Uchechukwu](https://github.com/uche-inyama)
-* [Moses Ogwo](https://github.com/mosesogwo)
+
+👤 **Moses Ogwo**
+- Email: mosesogwo@gmail.com
+- Github: [@mosesogwo](https://github.com/mosesogwo)
+- LinkedIn: [Moses Ogwo](https://www.linkedin.com/in/mosesogwo/)
+- Portfolio: [Moses Ogwo](https://mosesogwo.github.io/My-Portfolio/)
+
+👤 **Uchechukwu Inyama**
+- Email: uchenry.iny@gmail.com
+- Github: [@uche-inyama](https://github.com/uche-inyama)
+- LinkedIn: [Uchechukwu Inyama](https://www.linkedin.com/in/uchechukwu-inyama-b3429a105/)
+
 
 ## 📝 License
 
