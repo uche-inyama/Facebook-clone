@@ -11,6 +11,11 @@ The full project description can be found [here](https://www.theodinproject.com/
 ## Live Version
 Follow this link to visit [Talebook](https://taleboook.herokuapp.com/).
 
+Feel free to check the app features using this default credential:
+> **Email:** *taletester@xyz.com*
+
+> **Password:** *abc123???*
+
 ## Getting started
 
 To run this project for development and testing purposes, you need to first install [Ruby (v2.5.5)](https://www.ruby-lang.org/en/documentation/installation/) and [Rails (v5.2.3)](https://rubygems.org/gems/rails/versions/5.2.3).
