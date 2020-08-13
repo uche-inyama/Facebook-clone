@@ -24,7 +24,7 @@ body {
 }
 
 .friend-container {
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   background-color: white;
 }
@@ -116,5 +116,13 @@ small {
 
   #comment_body {
     width: 70%;
+  }
+}
+
+// FRIENDS
+.request-col .card {
+  flex-direction: row;
+  .card-img-top {
+    width: auto;
   }
 }
