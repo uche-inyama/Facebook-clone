@@ -5,8 +5,12 @@ body {
   font-size: 0.9rem;
 }
 
-.navbar {
-  background-color: #e3f2fd;
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #d2e3f0;
 }
 
 .field, .actions{
@@ -17,10 +21,6 @@ body {
 .request-container {
   width: 90%;
   margin: 0 auto;
-}
-
-.request-col {
-  background-color: white;
 }
 
 .friend-container {
@@ -34,14 +34,6 @@ body {
   border-radius: 25px;
 }
 
-.post-index-container {
-  background-color: white;
-  width: 60%;
-  margin: 0 auto;
-  .post {
-    width: 100%;
-  }
-}
 
 .post-form input, .post-form #post_body {
   width: 100%;
@@ -74,9 +66,13 @@ small {
 
 // POST INDEX
 .post-index-container {
+  background-color: white;
+  width: 60%;
+  margin: 0 auto;
   .post {
     padding: 1.25rem;
     border: none;
+    width: 100%;
     .gravatar {
       width: 80%;
       height: auto;
@@ -120,8 +116,11 @@ small {
 }
 
 // FRIENDS
-.request-col .card {
+.request-col {
+  background-color: white;
+  .card {
   flex-direction: row;
+  }
   .card-img-top {
     width: auto;
   }
