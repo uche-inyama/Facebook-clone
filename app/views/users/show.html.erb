@@ -9,14 +9,8 @@
     </div>
 
     <div class='col-md-8'>
-      <% if @user == current_user%>
-        <br><%= form_for(@post) do |f| %>
-          <%= f.label :body, 'Create a post' %><br/>
-          <%= f.text_area :body %>
-          <%= f.submit 'Post' %>
-        <% end %><br>
-      <% end %>
-
+    <%= signed_in_create_post?(@user, current_user, @post) %>
+    
       <% if @posts.empty? %>
         <h4 class='text-center font-weight-bold mb-3 mt-3' >You don't have any posts yet!</h4>
       <% else  %>
