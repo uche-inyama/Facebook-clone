@@ -12,4 +12,16 @@ module UsersHelper
       render 'users/post_form'
     end
   end
+
+  def edit_delete_post(current_user, posts)
+    if posts.empty?
+      content_tag(:h4, "You don't have any posts yet!", class: "text-center font-weight-bold mb-3 mt-3")
+    else
+      content_tag :div, class: "mb-5" do
+        posts.each do |post|
+          render 'users/edit_delete'
+        end
+      end
+    end
+  end
 end
