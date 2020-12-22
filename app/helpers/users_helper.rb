@@ -13,14 +13,26 @@ module UsersHelper
     end
   end
 
-  def edit_delete_post(current_user, posts)
+  def edit_delete_post(posts)
     if posts.empty?
       content_tag(:h4, "You don't have any posts yet!", class: "text-center font-weight-bold mb-3 mt-3")
     else
       content_tag :div, class: "mb-5" do
-        posts.each do |post|
-          render 'users/edit_delete'
-        end
+        render 'users/edit_delete'
+      end
+    end
+  end
+
+  def friend_request(current_user, user)
+    if current_user.pending_friends.include?user
+      content_tag :h6, "Friend request sent"
+    elsif current_user.friends.include?user
+      form_tag "/users/#{current_user.id}/friendships/#{user.id}", method: :delete, authenticity_token: "cf50faa3fe97702ca1ae" do
+        submit_tag 'Unfriend'
+      end
+    else
+      form_tag "users/#{user.id}/friend_requests", authenticity_token: "cf50faa3fe97702ca1ae" do
+        submit_tag 'Add friend'
       end
     end
   end

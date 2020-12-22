@@ -9,7 +9,7 @@
     </div>
 
     <div class='col-md-8'>
-    <%= signed_in_create_post?(@user, current_user, @post) %>
-    <%= edit_delete_post(current_user, @posts)%>
+      <%= signed_in_create_post?(@user, current_user, @post) %>
+      <%= edit_delete_post(@posts)%>
     </div>
   </div>
